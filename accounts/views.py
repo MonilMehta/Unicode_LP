@@ -15,7 +15,7 @@ def home(request):
 
         if user is not None:
             login(request,user)
-            print('succesful')
+            print(f'succesful {request.user.id}')
             return redirect('todopage',pk=user.id)
 
     return render(request,'home.html')

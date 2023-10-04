@@ -40,6 +40,6 @@ def delete_todo(request,pk):
         return redirect(reverse('todopage', kwargs={'pk': todo.username.id}))
     return render(request, 'delete_todo.html', {'form': form})
     
-def logout_view(request):
+def logout_view(request,pk):
     logout(request)
     return redirect('home')
