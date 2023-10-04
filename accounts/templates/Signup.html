@@ -1,0 +1,92 @@
+{% extends "parent2.html" %}
+
+{% block content %}
+<style>
+    /* Add your custom CSS styles here */
+    .container {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        position: relative;
+        display: flex; /* Changed from grid to flex */
+        flex-direction: column; /* Display items vertically */
+        margin-top: 50px;
+        margin-left: 200px;
+        height: 600px;
+        width: 800px;
+        padding: 20px;
+        background-color: #72A0C1;
+        border: 2px solid #03045e;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    form {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    input {
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 200px;
+    }
+
+    button {
+        color: #03045e;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+    .username,.email,.pass1,.pass2,a{
+        font-family: Anderson-Grotesk;
+        font-size: 30px;
+        font-weight: 900;
+    }
+    a{
+        color: darkblue;
+    }
+</style>
+
+<div class="container">
+    <div class="box">
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="username">
+                {{ form.username.label }}:
+                {{ form.username }}
+            </div>
+            <div class="email">
+                {{ form.email.label }}:
+                {{ form.email }}
+            </div>
+            <div class="pass1">
+                {{ form.password1.label }}:
+                {{ form.password1 }}
+            </div>
+            <div class="pass2">
+                {{ form.password2.label }}:
+                {{ form.password2 }}
+            </div>
+            <div class="signupbtn">
+                <a href="{% url 'home' %}">
+                    <button type="submit" class="btn btn-info" id="sub">Sign Up</button>
+                </a><br>
+
+                {{form.errors}}
+
+                Already have an Account?
+                <a href="{% url 'home' %}">Login</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

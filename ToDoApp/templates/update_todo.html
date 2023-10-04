@@ -1,0 +1,10 @@
+{% extends 'parent.html' %}
+{% block content %}
+    <h2>Update Todo</h2>
+    <form method="post" class="todo-form">
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn-info" type="submit">Update</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "./parent.html" %}
+
+{% block content %}
+    <title>Document</title>
+    <style>
+        .container {
+            position: absolute;
+        }
+
+        .box {
+            flex: 1 1 1;
+            position: relative;
+            margin-top: 40%;
+            margin-left: 15%;
+            height: 600px;
+            width: 800px;
+            padding: 20px;
+            background-color: #72A0C1;
+            border: 2px solid #03045e;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        form {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        label {
+            color: black;
+            font-family: "Anderson Grotesk";
+            font-size: 24px; /* Adjusted font size */
+        }
+
+        input {
+            padding: 8px;
+            margin-top: 5px;
+            width: 200px;
+        }
+
+        #sub {
+            background-color: #03045e;
+            border-radius: 10%;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .signin {
+            margin-top: 5px;
+            color: #000;
+            padding: 10px 15px;
+            border-radius: 10%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="{% url 'home' %}">
+        {% csrf_token %}
+        <div class="container">
+            <div class="box">
+                <div id="uname">
+                    <label>Username:</label>
+                    <input type="text" placeholder="Enter Username" name="username" required><br>
+                </div>
+                <div id="pword">
+                    <label>Password:</label>
+                    <input type="password" placeholder="Enter Password" name="password" required><br>
+                </div>
+                <div>
+                    <br>
+                    <button type="submit" id="sub">Login</button>
+                    {{ form.errors }}
+                </div>
+                <a href="{% url 'signup' %}">SignIn Instead</a>
+            </div>
+        </div>
+    </form>
+</body>
+{% endblock %}

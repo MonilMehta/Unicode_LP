@@ -1,0 +1,10 @@
+{% extends 'parent.html' %}
+{% block content %}
+    <h2>Delete Todo</h2>
+    <form method="post" class="todo-form">
+        {% csrf_token %}
+        <label>Are You sure you want to delete</label>
+        <button class="btn btn-info" type="submit">Confirm</button>
+    </form>
+
+{% endblock %}
