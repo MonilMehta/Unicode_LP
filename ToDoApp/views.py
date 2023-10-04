@@ -41,5 +41,6 @@ def delete_todo(request,pk):
     return render(request, 'delete_todo.html', {'form': form})
     
 def logout_view(request,pk):
+    #could have avoided if I could have used requests module
     logout(request)
     return redirect('home')
