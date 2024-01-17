@@ -33,6 +33,22 @@
         flex-direction: column;
     }
 
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 15px;
+        align-items: center;
+    }
+
+    .form-group label {
+        color: black;
+            font-family: "Anderson Grotesk";
+            font-size: 24px; 
+            padding-right: 10px;
+            text-align: left; /* Center the label text */
+            width: 200px; 
+    }
+
     input {
         padding: 8px;
         margin-top: 5px;
@@ -46,42 +62,47 @@
         border: none;
         cursor: pointer;
     }
-    .username,.email,.pass1,.pass2,a{
+
+    .username, .email, .pass1, .pass2, a {
         font-family: Anderson-Grotesk;
-        font-size: 30px;
-        font-weight: 900;
+        font-size: 24px;
     }
-    a{
+
+    a {
         color: darkblue;
     }
 </style>
 
 <div class="container">
     <div class="box">
-        <form method="post" action="">
+        <form method="post" action="" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="username">
-                {{ form.username.label }}:
+            <div class="form-group username">
+                <label>{{ form.username.label }}</label>
                 {{ form.username }}
             </div>
-            <div class="email">
-                {{ form.email.label }}:
+            <div class="form-group email">
+                <label>{{ form.email.label }}</label>
                 {{ form.email }}
             </div>
-            <div class="pass1">
-                {{ form.password1.label }}:
+            <div class="form-group pass1">
+                <label>{{ form.password1.label }}</label>
                 {{ form.password1 }}
             </div>
-            <div class="pass2">
-                {{ form.password2.label }}:
+            <div class="form-group pass2">
+                <label>{{ form.password2.label }}</label>
                 {{ form.password2 }}
             </div>
+            <!-- <div class="image">
+                {{ form.image.label }}:
+                {{ form.image }}
+            </div> -->
             <div class="signupbtn">
                 <a href="{% url 'home' %}">
                     <button type="submit" class="btn btn-info" id="sub">Sign Up</button>
                 </a><br>
 
-                {{form.errors}}
+                {{ form.errors }}
 
                 Already have an Account?
                 <a href="{% url 'home' %}">Login</a>

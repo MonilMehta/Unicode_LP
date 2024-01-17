@@ -94,6 +94,9 @@ word-wrap: break-word;
     color: aliceblue;
     font-size: 6rem;
 }
+#check-box{
+    margin-top: 5px;
+}
     </style>
 
 <body>
@@ -117,7 +120,7 @@ word-wrap: break-word;
             <button type="submit" class="btn btn-danger">Logout</button>
         </form>
     </nav>
-    <h1 class="wel-msg">Welcome, {{user}}</h1>
+    <h1 class="wel-msg">Welcome, {{user}}  </h1>
     <div class="todo-container">
         <h2>Todo List</h2>
 
@@ -136,9 +139,9 @@ word-wrap: break-word;
                             </tr>
                             {% for i in todos %}
                             <tr>
-                            <td>{{forloop.counter}}</td>
-                            <td>{%if i.task_completed%}
-                                Done
+                            <td>{{forloop.counter}}</td>`
+                            <td id="check-box">{%if i.task_completed%}
+                                Completed
                                 {% else %}
                                 Incomplete
                                 {% endif %}

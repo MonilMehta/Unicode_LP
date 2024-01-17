@@ -1,4 +1,4 @@
-{% extends "./parent.html" %}
+{% extends "./parent2.html" %}
 
 {% block content %}
     <title>Document</title>
@@ -20,6 +20,10 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         form {
@@ -33,7 +37,11 @@
         label {
             color: black;
             font-family: "Anderson Grotesk";
-            font-size: 24px; /* Adjusted font size */
+            font-size: 24px; 
+            padding-right: 10px;
+            text-align: left; /* Center the label text */
+            width: 200px; /* Set a fixed width for labels to ensure consistent spacing */
+            display: inline-block;
         }
 
         input {
@@ -49,6 +57,7 @@
             padding: 10px 15px;
             border: none;
             cursor: pointer;
+            margin-top: 40%;
         }
 
         .signin {
@@ -57,6 +66,13 @@
             padding: 10px 15px;
             border-radius: 10%;
             cursor: pointer;
+        }
+
+        a {
+            font-family: Anderson-Grotesk;
+            font-size: 20px;
+            font-weight: 500;
+            color: black;
         }
     </style>
 </head>

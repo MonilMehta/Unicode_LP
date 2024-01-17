@@ -5,10 +5,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from .models import *
 from .forms import *
-# Create your views here.
-
-# def signin(request):
-#     return render(request,'SignIn.html')
 
 def todo(request,pk):
     user = User.objects.get(id=pk)
